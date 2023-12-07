@@ -14,8 +14,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "santension.runPythonScript",
-        "title": "Run Python Script"
+        "command": "santension.readString",
+        "title": "Read String"
       }
     ]
   },
