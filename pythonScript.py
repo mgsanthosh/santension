@@ -7,7 +7,7 @@ def transform_input(input_string):
     name = input_string[start_index:end_index]
 
     # Transform input
-    transformed_output = f'Python Printing: {name}'
+    transformed_output = f'\n String Len: {len(name)}'
     return transformed_output
 
 if __name__ == '__main__':
