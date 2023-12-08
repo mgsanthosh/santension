@@ -9,13 +9,31 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "*"
+  ],
   "main": "./dist/extension.js",
   "contributes": {
+    "languages": [
+      {
+        "id": "my-extension",
+        "aliases": ["My Extension", "my-ext"],
+        "extensions": ["myext"]
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "extension.runMyExtension",
+          "when": "editorTextFocus",
+          "group": "navigation"
+        }
+      ]
+    },
     "commands": [
       {
-        "command": "santension.readString",
-        "title": "Read String"
+        "command": "extension.runMyExtension",
+        "title": "Run My Extension"
       }
     ]
   },
