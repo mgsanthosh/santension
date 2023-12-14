@@ -2,7 +2,7 @@ import * as vscode from 'vscode';
 import * as path from 'path';
 import * as cp from 'child_process';
 import OpenAI from "openai";
-const openai = new OpenAI({apiKey: "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"});
+const openai = new OpenAI({apiKey: "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"});
 
 
 export function activate(context: vscode.ExtensionContext) {
@@ -16,7 +16,8 @@ export function activate(context: vscode.ExtensionContext) {
         // Check if the "Enter" key is pressed
         if (addedText.includes('\n') || addedText.includes('\r')) {
             vscode.window.showInformationMessage('Enter key pressed!');
-            const editor = vscode.window.activeTextEditor;
+        
+            const editor = vscode.window.activeTextEditor!;
             const cursorPosition = editor.selection.active;
             const documentText = editor.document.getText(new vscode.Range(cursorPosition.line, 0, cursorPosition.line, cursorPosition.character));
             vscode.window.showInformationMessage('Document Text ', documentText);
@@ -25,9 +26,11 @@ export function activate(context: vscode.ExtensionContext) {
                 let promptString = documentText.replaceAll("//", "");
                 promptString = promptString.replaceAll("##$", "");
                 const stream = await openai.chat.completions.create({
-                model: "gpt-3.5-turbo",
+                model: "text-embedding-ada-002",
                 messages: [{ role: "user", content: promptString }],
-                max_tokens: 1999
+                max_tokens: 20000
+            }).catch((err) => {
+                vscode.window.showInformationMessage("Error in openai API", err);
             });
             vscode.window.showInformationMessage("RESP ");
             editor?.edit((editBuilder) => {
@@ -114,3 +117,6 @@ export function activate(context: vscode.ExtensionContext) {
 
     // })
 }
+
+
+// write five sentences about you ##$

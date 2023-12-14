@@ -3,6 +3,7 @@
   "displayName": "santension",
   "description": "a python extesion",
   "version": "0.0.1",
+  "publisher": "SanthoshMG",
   "engines": {
     "vscode": "^1.84.0"
   },
@@ -17,8 +18,13 @@
     "languages": [
       {
         "id": "my-extension",
-        "aliases": ["My Extension", "my-ext"],
-        "extensions": ["myext"]
+        "aliases": [
+          "My Extension",
+          "my-ext"
+        ],
+        "extensions": [
+          "myext"
+        ]
       }
     ],
     "menus": {
@@ -49,17 +55,20 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.84.0",
     "@types/mocha": "^10.0.6",
     "@types/node": "18.x",
+    "@types/vscode": "^1.84.0",
     "@typescript-eslint/eslint-plugin": "^6.13.1",
     "@typescript-eslint/parser": "^6.13.1",
-    "eslint": "^8.54.0",
-    "typescript": "^5.3.2",
-    "ts-loader": "^9.5.1",
-    "webpack": "^5.89.0",
-    "webpack-cli": "^5.1.4",
     "@vscode/test-cli": "^0.0.4",
-    "@vscode/test-electron": "^2.3.8"
+    "@vscode/test-electron": "^2.3.8",
+    "eslint": "^8.54.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.2",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "openai": "^4.21.0"
   }
 }
